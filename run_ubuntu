@@ -1,2 +1,2 @@
 oc delete po ubuntu
-kubectl run -i --tty ubuntu --image=ubuntu --restart=Never -- sh
+kubectl run -i --tty ubuntu --image=us.icr.io/eduardo-hbc/ubuntu --restart=Never -- sh
