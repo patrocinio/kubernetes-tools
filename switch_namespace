@@ -1,0 +1,6 @@
+NAMESPACE=$1
+
+echo Switching to namespace $NAMESPACE
+
+kubectl config set-context --current --namespace=$NAMESPACE
+

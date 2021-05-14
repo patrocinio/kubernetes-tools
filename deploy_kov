@@ -1,0 +1,17 @@
+cd ~/github/kube-ops-view
+kubectl delete -f deploy
+kubectl apply -k deploy
+kubectl delete svc kube-ops-view
+kubectl expose deploy kube-ops-view --type=NodePort
+
+one_node=$(kubectl get nodes -o=custom-columns="NAME:.metadata.name" --no-headers=true | head -1)
+
+echo Node name: $one_node
+
+ip=$(ibmcloud is ips | grep $one_node | awk '{print $2}')
+
+echo Node IP: $ip
+
+port=$(kubectl get svc kube-ops-view -o jsonpath='{.spec.ports[0].nodePort}')
+
+echo URL: http://$ip:$port
