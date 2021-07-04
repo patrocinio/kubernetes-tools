@@ -1,2 +1,2 @@
 oc delete po busybox
-kubectl run -i --tty busybox --image=us.icr.io/eduardo-hbc/busybox --restart=Never -- sh
+kubectl run -i --tty busybox --image=busybox --restart=Never -- sh
